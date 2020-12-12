@@ -19,5 +19,4 @@ public class CourseResponse {
     private long courseId;
     private String name;
     private String courseCode;
-    private List<ExaminationCollectionResponse> examinations;
 }
