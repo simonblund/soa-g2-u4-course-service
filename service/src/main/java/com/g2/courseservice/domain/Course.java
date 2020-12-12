@@ -23,7 +23,4 @@ public class Course {
     private String name;
     private String courseCode;
 
-    @OneToMany(mappedBy = "course")
-    private List<Examination> examinations;
-
 }
