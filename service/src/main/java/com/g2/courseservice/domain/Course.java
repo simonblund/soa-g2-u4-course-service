@@ -8,9 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.List;
 
-/*
-This class belongs in the fictional course service and is only here to provide some logical illusions.
- */
+
 @AllArgsConstructor
 @Builder
 @Data
@@ -22,6 +20,8 @@ public class Course {
     private long courseId;
     private String name;
     private String courseCode;
+    private double ects;
+
 
     @OneToMany(mappedBy = "course")
     private List<CourseInstance> courseInstances;

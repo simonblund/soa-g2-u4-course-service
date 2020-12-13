@@ -1,8 +1,7 @@
-package com.g2.courseservice.api.rest.course;
+package com.g2.courseservice.api.rest.teacher;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import com.g2.courseservice.api.rest.courseinstance.CourseInstanceResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,10 +14,10 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
-public class CourseResponse {
-    private long courseId;
-    private String name;
-    private String courseCode;
-    private double ects;
-    private List<CourseInstanceResponse> courseInstances;
+public class TeacherResponse {
+    private long teacherId;
+    private String userName;
+    private String firstName;
+    private String lastName;
+    private List<Long> courseInstances;
 }

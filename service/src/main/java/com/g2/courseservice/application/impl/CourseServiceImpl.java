@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.val;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
 public class CourseServiceImpl implements CourseService {
@@ -27,5 +29,10 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public Course findFromCourseCode(String courseCode) {
         return repository.findOneByCourseCode(courseCode);
+    }
+
+    @Override
+    public List<Course> getAll(){
+        return repository.findAll();
     }
 }

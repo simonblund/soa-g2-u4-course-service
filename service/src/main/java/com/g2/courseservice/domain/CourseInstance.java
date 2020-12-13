@@ -1,6 +1,7 @@
 package com.g2.courseservice.domain;
 
 import com.g2.courseservice.api.rest.course.Location;
+import com.g2.courseservice.api.rest.course.Period;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,11 +24,13 @@ public class CourseInstance {
     private Course course;
 
     private Location location;
+    private int year;
+
+    @ElementCollection(targetClass = Period.class)
+    @JoinTable(name = "tblInstancePeriods", joinColumns = @JoinColumn(name = "courseInstanceId"))
+    @Enumerated(EnumType.STRING)
+    private List<Period> periods;
 
     @ManyToMany
-    @JoinTable(
-            name = "courseInstance_teacher",
-            joinColumns = @JoinColumn(name = "teacher_id"),
-            inverseJoinColumns = @JoinColumn(name = "course_instance_id"))
     private List<Teacher> teachers;
 }

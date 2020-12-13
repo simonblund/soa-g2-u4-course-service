@@ -21,6 +21,6 @@ public class Teacher {
     private String firstName;
     private String lastName;
 
-    @ManyToMany(mappedBy = "courseInstance_teacher")
-    private List<CourseInstance> coursesInstances;
+    @ManyToMany
+    private List<CourseInstance> courseInstances;
 }
