@@ -1,7 +1,7 @@
 url: localhost:8080
 
 server:
-  port: 8080
+  port: 8082
   
 # Logging to stdout for development. Note: empty strings are significant.
   tomcat:

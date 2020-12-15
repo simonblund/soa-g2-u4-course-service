@@ -30,4 +30,5 @@ public class CourseController {
                 .collect(Collectors.toList());
         return ResponseEntity.ok(ListCourseResponse.builder().courses(courses).build());
     }
+
 }

@@ -15,5 +15,5 @@ import java.util.List;
 @AllArgsConstructor
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class ListCourseResponse {
-    private List<CourseResponse> courses;
+    private List<CourseResponse> courses; //course_code
 }
