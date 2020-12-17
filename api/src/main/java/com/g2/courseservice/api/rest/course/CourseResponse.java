@@ -2,7 +2,7 @@ package com.g2.courseservice.api.rest.course;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import com.g2.courseservice.api.rest.courseinstance.CourseInstanceResponse;
+import com.g2.courseservice.api.rest.courseinstance.CourseOccasionResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,5 +20,5 @@ public class CourseResponse {
     private String name;
     private String courseCode;
     private double ects;
-    private List<CourseInstanceResponse> courseInstances;
+    private List<CourseOccasionResponse> courseInstances;
 }

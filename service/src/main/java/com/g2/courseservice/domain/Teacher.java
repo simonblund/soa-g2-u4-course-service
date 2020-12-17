@@ -22,5 +22,5 @@ public class Teacher {
     private String lastName;
 
     @ManyToMany
-    private List<CourseInstance> courseInstances;
+    private List<CourseOccasion> courseOccasions;
 }

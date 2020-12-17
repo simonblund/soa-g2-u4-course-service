@@ -15,10 +15,10 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @Entity
-public class CourseInstance {
+public class CourseOccasion {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long courseInstanceId;
+    private long courseOccasionId;
 
     @ManyToOne
     private Course course;
@@ -27,7 +27,7 @@ public class CourseInstance {
     private int year;
 
     @ElementCollection(targetClass = Period.class)
-    @JoinTable(name = "tblInstancePeriods", joinColumns = @JoinColumn(name = "courseInstanceId"))
+    @JoinTable(name = "tblInstancePeriods", joinColumns = @JoinColumn(name = "courseOccasionId"))
     @Enumerated(EnumType.STRING)
     private List<Period> periods;
 

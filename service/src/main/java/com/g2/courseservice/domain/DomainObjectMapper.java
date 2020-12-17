@@ -1,7 +1,7 @@
 package com.g2.courseservice.domain;
 
 import com.g2.courseservice.api.rest.course.CourseResponse;
-import com.g2.courseservice.api.rest.courseinstance.CourseInstanceResponse;
+import com.g2.courseservice.api.rest.courseinstance.CourseOccasionResponse;
 import com.g2.courseservice.api.rest.teacher.TeacherResponse;
 import lombok.val;
 
@@ -9,8 +9,8 @@ import java.util.stream.Collectors;
 
 public class DomainObjectMapper {
     public static CourseResponse toCourseResponse(Course input){
-        val instances = input.getCourseInstances().stream()
-                .map(courseInstance -> toCourseInstanceResponse(courseInstance))
+        val instances = input.getCourseOccasions().stream()
+                .map(courseOccasion -> toCourseInstanceResponse(courseOccasion))
                 .collect(Collectors.toList());
         return CourseResponse.builder()
                 .courseId(input.getCourseId())
@@ -30,12 +30,12 @@ public class DomainObjectMapper {
                 .build();
     }
 
-    public static CourseInstanceResponse toCourseInstanceResponse(CourseInstance input){
+    public static CourseOccasionResponse toCourseInstanceResponse(CourseOccasion input){
         val teachers = input.getTeachers().stream()
                 .map(teacher -> toTeacherResponse(teacher))
                 .collect(Collectors.toList());
-        return CourseInstanceResponse.builder()
-                .courseInstanceId(input.getCourseInstanceId())
+        return CourseOccasionResponse.builder()
+                .courseOccasionId(input.getCourseOccasionId())
                 .courseCode(input.getCourse().getCourseCode())
                 .location(input.getLocation())
                 .year(input.getYear())

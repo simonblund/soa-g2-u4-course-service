@@ -17,8 +17,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
-public class CourseInstanceResponse {
-    private long courseInstanceId;
+public class CourseOccasionResponse {
+    private long courseOccasionId;
     private String courseCode;
     private Location location;
     private int year;

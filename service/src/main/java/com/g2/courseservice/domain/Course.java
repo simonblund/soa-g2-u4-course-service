@@ -24,6 +24,6 @@ public class Course {
 
 
     @OneToMany(mappedBy = "course")
-    private List<CourseInstance> courseInstances;
+    private List<CourseOccasion> courseOccasions;
 
 }
