@@ -11,6 +11,7 @@ import com.g2.courseservice.infrastructure.db.TeacherRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +27,7 @@ public class TestDataGenerator {
     private List<Course> courses = new ArrayList<>();
 
 
+    @PostConstruct
     public void generate(){
         generateTeachers();
         generateCourses();
