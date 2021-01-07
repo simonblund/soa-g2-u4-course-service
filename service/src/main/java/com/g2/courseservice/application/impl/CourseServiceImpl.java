@@ -3,6 +3,7 @@ package com.g2.courseservice.application.impl;
 import com.g2.courseservice.api.rest.course.CourseRequest;
 import com.g2.courseservice.application.CourseService;
 import com.g2.courseservice.domain.Course;
+import com.g2.courseservice.domain.CourseOccasion;
 import com.g2.courseservice.infrastructure.db.CourseRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.val;
@@ -35,4 +36,5 @@ public class CourseServiceImpl implements CourseService {
     public List<Course> getAll(){
         return repository.findAll();
     }
+
 }

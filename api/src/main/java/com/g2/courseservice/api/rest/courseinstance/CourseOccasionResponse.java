@@ -21,6 +21,7 @@ public class CourseOccasionResponse {
     private long courseOccasionId;
     private String courseCode;
     private Location location;
+    private long timeEditObjectId;
     private int year;
     private List<Period> periods;
     private List<TeacherResponse> teachers;

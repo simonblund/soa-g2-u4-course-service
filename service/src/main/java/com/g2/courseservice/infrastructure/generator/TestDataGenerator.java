@@ -50,9 +50,15 @@ public class TestDataGenerator {
                 .lastName("Beck")
                 .userName("ingbec").build();
 
+        Teacher real1 = Teacher.builder()
+                .firstName("Svante")
+                .lastName("Edzen")
+                .userName("svaedz").build();
+
         teachers.add(teacherRepository.save(teacher1));
         teachers.add(teacherRepository.save(teacher2));
         teachers.add(teacherRepository.save(teacher3));
+        teachers.add(teacherRepository.save(real1));
 
     }
 
@@ -75,9 +81,16 @@ public class TestDataGenerator {
                 .ects(7.5)
                 .build();
 
+        Course realCourse1 = Course.builder()
+                .courseCode("D0031N")
+                .name("Enterprise Architecture och SOA")
+                .ects(7.5)
+                .build();
+
         courses.add(courseRepository.save(course1));
         courses.add(courseRepository.save(course2));
         courses.add(courseRepository.save(course3));
+        courses.add(courseRepository.save(realCourse1));
 
     }
 
@@ -130,12 +143,22 @@ public class TestDataGenerator {
                 .periods(List.of(Period.P3, Period.P4))
                 .build();
 
+        CourseOccasion realOccasion7 = CourseOccasion.builder()
+                .course(courses.get(3))
+                .teachers(teachers.subList(2,3))
+                .location(Location.DISTANCE)
+                .timeEditObjectId(132867)
+                .year(2021)
+                .periods(List.of(Period.P3, Period.P4))
+                .build();
+
         courseOccasionRepository.save(occasion1);
         courseOccasionRepository.save(occasion2);
         courseOccasionRepository.save(occasion3);
         courseOccasionRepository.save(occasion4);
         courseOccasionRepository.save(occasion5);
         courseOccasionRepository.save(occasion6);
+        courseOccasionRepository.save(realOccasion7);
     }
 
 

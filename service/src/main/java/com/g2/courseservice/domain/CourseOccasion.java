@@ -25,6 +25,7 @@ public class CourseOccasion {
 
     private Location location;
     private int year;
+    private long timeEditObjectId;
 
     @ElementCollection(targetClass = Period.class)
     @JoinTable(name = "tblInstancePeriods", joinColumns = @JoinColumn(name = "courseOccasionId"))

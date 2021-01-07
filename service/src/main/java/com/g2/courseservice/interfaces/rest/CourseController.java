@@ -4,8 +4,10 @@ import com.g2.courseservice.api.rest.UrlPaths;
 import com.g2.courseservice.api.rest.course.CourseRequest;
 import com.g2.courseservice.api.rest.course.CourseResponse;
 import com.g2.courseservice.api.rest.course.ListCourseResponse;
+import com.g2.courseservice.api.rest.courseinstance.CourseOccasionResponse;
 import com.g2.courseservice.application.CourseService;
 import com.g2.courseservice.domain.DomainObjectMapper;
+import com.g2.courseservice.infrastructure.db.CourseOccasionRepository;
 import com.g2.courseservice.infrastructure.generator.TestDataGenerator;
 import lombok.RequiredArgsConstructor;
 import lombok.val;
@@ -23,6 +25,8 @@ public class CourseController {
 
     private final CourseService service;
 
+    private final CourseOccasionRepository courseOccasionRepository;
+
     @Autowired
     private final TestDataGenerator testDataGenerator;
 
@@ -39,6 +43,12 @@ public class CourseController {
     ResponseEntity<CourseResponse> findOneCourse(@PathVariable String courseCode){
         val course = service.findFromCourseCode(courseCode);
         return ResponseEntity.ok(DomainObjectMapper.toCourseResponse(course));
+    }
+
+    @GetMapping(UrlPaths.GET_COURSE_INSTANCE)
+    ResponseEntity<CourseOccasionResponse> findOneCourseOccasion(@PathVariable long courseOccasionId){
+        val courseOccasion = courseOccasionRepository.findById(courseOccasionId);
+        return ResponseEntity.ok(DomainObjectMapper.toCourseInstanceResponse(courseOccasion.get()));
     }
 
     @PostMapping(UrlPaths.COURSE_RESOURCE)

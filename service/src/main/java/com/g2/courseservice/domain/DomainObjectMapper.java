@@ -40,6 +40,7 @@ public class DomainObjectMapper {
                 .location(input.getLocation())
                 .year(input.getYear())
                 .periods(input.getPeriods())
+                .timeEditObjectId(input.getTimeEditObjectId())
                 .teachers(teachers)
                 .build();
     }

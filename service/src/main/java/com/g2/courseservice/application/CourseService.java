@@ -2,6 +2,7 @@ package com.g2.courseservice.application;
 
 import com.g2.courseservice.api.rest.course.CourseRequest;
 import com.g2.courseservice.domain.Course;
+import com.g2.courseservice.domain.CourseOccasion;
 
 import java.util.List;
 
