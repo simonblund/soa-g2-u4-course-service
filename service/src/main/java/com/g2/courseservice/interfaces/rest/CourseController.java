@@ -9,6 +9,7 @@ import com.g2.courseservice.domain.DomainObjectMapper;
 import com.g2.courseservice.infrastructure.db.CourseOccasionRepository;
 import com.g2.courseservice.infrastructure.generator.TestDataGenerator;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 @RestController
 @RequiredArgsConstructor
 public class CourseController {
@@ -48,6 +50,19 @@ public class CourseController {
     ResponseEntity<CourseOccasionResponse> findOneCourseOccasion(@PathVariable long courseOccasionId){
         val courseOccasion = courseOccasionRepository.findById(courseOccasionId);
         return ResponseEntity.ok(DomainObjectMapper.toCourseInstanceResponse(courseOccasion.get()));
+    }
+
+    @GetMapping(UrlPaths.GET_COURSE_INSTANCES)
+    ResponseEntity<List<CourseOccasionResponse>> findCourseOccasionsByCourseCode(@RequestParam("course_code") String courseCode){
+        log.info("findCourseOccasionsByCourseCode, with param courseCode: {}", courseCode);
+        val course = service.findFromCourseCode(courseCode);
+        val courseOccasions = courseOccasionRepository.findByCourse(course).stream()
+                .map(occasion -> DomainObjectMapper.toCourseInstanceResponse(occasion))
+                .collect(Collectors.toList());
+        /*val courseOccasions =  courseOccasionRepository.findCourseOccasionsByCourseCourseCode(courseCode).stream()
+                .map(occasion -> DomainObjectMapper.toCourseInstanceResponse(occasion))
+                .collect(Collectors.toList());*/
+        return ResponseEntity.ok(courseOccasions);
     }
 
     @PostMapping(UrlPaths.COURSE_RESOURCE)
