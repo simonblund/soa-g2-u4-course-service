@@ -12,4 +12,6 @@ import java.util.List;
 public interface CourseOccasionRepository extends CrudRepository<CourseOccasion, Long> {
     //List<CourseOccasion> findCourseOccasionsByCourseCourseCode(String courseCode);
     List<CourseOccasion> findByCourse(Course course);
+    @Override
+    List<CourseOccasion> findAll();
 }
