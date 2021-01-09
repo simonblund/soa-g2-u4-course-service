@@ -3,6 +3,8 @@ package com.g2.courseservice.api.rest;
 import com.g2.courseservice.api.rest.course.CourseRequest;
 import com.g2.courseservice.api.rest.course.CourseResponse;
 import com.g2.courseservice.api.rest.courseinstance.CourseOccasionResponse;
+import com.g2.courseservice.api.rest.teacher.TeacherListResponse;
+import com.g2.courseservice.api.rest.teacher.TeacherResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,5 +27,11 @@ public interface CourseServiceResource {
 
     @PostMapping(UrlPaths.COURSE_RESOURCE)
     ResponseEntity<CourseResponse> createCourse(@RequestBody CourseRequest courseRequest);
+
+    @GetMapping(UrlPaths.GET_TEACHER)
+    ResponseEntity<TeacherResponse> findOne(@PathVariable long teacherId);
+
+    @GetMapping(UrlPaths.TEACHER_RESOURCE)
+    ResponseEntity<TeacherListResponse> getAll();
 
 }
